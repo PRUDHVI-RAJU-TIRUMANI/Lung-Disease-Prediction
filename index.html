@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lung Cancer Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+```
+<div class="card">
+
+    <h1>🫁 AI Lung Cancer Predictor</h1>
+
+    <p class="badge">
+        Machine Learning • Decision Tree • Flask
+    </p>
+
+    <p class="subtitle">
+        Enter the information below to estimate the probability of lung cancer using a machine learning model.
+    </p>
+
+    <form action="/predict" method="POST">
+
+        <h2 class="section-title">Personal Information</h2>
+
+        <div class="field">
+            <label>Age</label>
+            <small class="hint">
+                Enter your current age in years.
+            </small>
+            <input type="number" name="age" min="1" max="120" required>
+        </div>
+
+        <div class="field">
+            <label>Gender</label>
+            <small class="hint">
+                Select your gender.
+            </small>
+
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="gender" value="1" required>
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="2">
+                    Female
+                </label>
+            </div>
+        </div>
+
+        <h2 class="section-title">Lifestyle Factors</h2>
+
+        <div class="field">
+            <label>Smoking</label>
+            <small class="hint">
+                Do you currently smoke or have a history of smoking?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="smoking" value="2" required> Yes</label>
+                <label><input type="radio" name="smoking" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Yellow Fingers</label>
+            <small class="hint">
+                Yellow staining on fingers commonly associated with smoking.
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="yellow_fingers" value="2" required> Yes</label>
+                <label><input type="radio" name="yellow_fingers" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Peer Pressure</label>
+            <small class="hint">
+                Have friends or social circles influenced unhealthy habits?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="peer_pressure" value="2" required> Yes</label>
+                <label><input type="radio" name="peer_pressure" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Alcohol Consuming</label>
+            <small class="hint">
+                Do you consume alcohol regularly?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="alcohol_consuming" value="2" required> Yes</label>
+                <label><input type="radio" name="alcohol_consuming" value="1"> No</label>
+            </div>
+        </div>
+
+        <h2 class="section-title">Health Conditions</h2>
+
+        <div class="field">
+            <label>Anxiety</label>
+            <small class="hint">
+                Do you frequently experience anxiety or excessive worry?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="anxiety" value="2" required> Yes</label>
+                <label><input type="radio" name="anxiety" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Chronic Disease</label>
+            <small class="hint">
+                Do you have a long-term medical condition?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="chronic_disease" value="2" required> Yes</label>
+                <label><input type="radio" name="chronic_disease" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Allergy</label>
+            <small class="hint">
+                Do you suffer from recurring allergies?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="allergy" value="2" required> Yes</label>
+                <label><input type="radio" name="allergy" value="1"> No</label>
+            </div>
+        </div>
+
+        <h2 class="section-title">Symptoms</h2>
+
+        <div class="field">
+            <label>Fatigue</label>
+            <small class="hint">
+                Do you often feel unusually tired or exhausted?
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="fatigue" value="2" required> Yes</label>
+                <label><input type="radio" name="fatigue" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Wheezing</label>
+            <small class="hint">
+                A whistling sound while breathing.
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="wheezing" value="2" required> Yes</label>
+                <label><input type="radio" name="wheezing" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Coughing</label>
+            <small class="hint">
+                Persistent or recurring cough.
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="coughing" value="2" required> Yes</label>
+                <label><input type="radio" name="coughing" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Shortness Of Breath</label>
+            <small class="hint">
+                Difficulty breathing during normal activities.
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="shortness_of_breath" value="2" required> Yes</label>
+                <label><input type="radio" name="shortness_of_breath" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Swallowing Difficulty</label>
+            <small class="hint">
+                Difficulty swallowing food or liquids.
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="swallowing_difficulty" value="2" required> Yes</label>
+                <label><input type="radio" name="swallowing_difficulty" value="1"> No</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Chest Pain</label>
+            <small class="hint">
+                Frequent chest pain or discomfort.
+            </small>
+
+            <div class="radio-group">
+                <label><input type="radio" name="chest_pain" value="2" required> Yes</label>
+                <label><input type="radio" name="chest_pain" value="1"> No</label>
+            </div>
+        </div>
+
+        <button type="submit">
+            Predict Lung Cancer Risk
+        </button>
+
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+
+        <h2>{{ prediction }}</h2>
+
+        <p>
+            Estimated Lung Cancer Probability:
+            <strong>{{ cancer_probability }}%</strong>
+        </p>
+
+        <p>
+            Risk Category:
+            <strong>
+                {% if cancer_probability < 25 %}
+                    Very Low
+                {% elif cancer_probability < 50 %}
+                    Low
+                {% elif cancer_probability < 75 %}
+                    Moderate
+                {% else %}
+                    High
+                {% endif %}
+            </strong>
+        </p>
+
+        <small>
+            This prediction is generated by a machine learning model and is intended for educational purposes only. It should not be considered medical advice or a professional diagnosis.
+        </small>
+
+    </div>
+    {% endif %}
+
+</div>
+```
+
+</div>
+
+</body>
+</html>
