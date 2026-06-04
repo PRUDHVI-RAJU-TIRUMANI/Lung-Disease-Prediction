@@ -1,2 +1,1 @@
-# Lung-Disease-Prediction
-Predicts the likelihood of lung cancer using machine learning based on patient symptoms, lifestyle factors, and medical conditions
+Developed an end-to-end Lung Cancer Prediction System using Machine Learning and Flask. The model analyzes factors such as age, smoking habits, anxiety, chronic diseases, wheezing, coughing, chest pain, and other health indicators to predict the likelihood of lung cancer. The project includes data preprocessing, handling class imbalance using SMOTE, model training with Decision Trees, performance evaluation, model serialization using Joblib, and deployment through a user-friendly Flask web interface.
